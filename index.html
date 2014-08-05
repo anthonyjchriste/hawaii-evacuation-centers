@@ -5,12 +5,49 @@
     <title>Map of Hawaii Evacuation Centers</title>
     <link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.css" />
     <script src="http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.js"></script>
+    <script src="http://raw.githubusercontent.com/jseppi/Leaflet.MakiMarkers/master/Leaflet.MakiMarkers.js"></script>
+    <script src="locations.js"></script>
 </head>
 <body>
     <div id="hawaii-map" style="width:800px;height:600px;"></div>
 
     <script type="text/javascript">
+        var osmUrl = "http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png";
+        var osmAttrib = "Map data © OpenStreetMap contributors";
+        var osm = new L.TileLayer(osmUrl, {attribution: osmAttrib});
+        var map = L.map('hawaii-map').setView([20.848545 , -157.494507], 7);
+        var shelterIcon = L.MakiMarkers.icon({icon: "lodging", color: "#00F", size: "m"});
+        var healthNeedsIcon = L.MakiMarkers.icon({icon: "hospital", color: "#F00", size: "m"});
+        var petFriendlyIcon = L.MakiMarkers.icon({icon: "dog-park", color: "#0F0", size: "m"});
+        var petsOnlyIcon = L.MakiMarkers.icon({icon: "dog-park", color: "#FFFF00", size: "m"});
+        map.addLayer(osm);
 
+        var marker, l, icon, name, latLng, healthNeeds, petFriendly;
+        for(var i = 0; i < locations.length; i++) {
+            l = locations[i];
+            name = l[NAME];
+            latLng = l[LAT_LNG];
+            healthNeeds = l[HEALTH_NEEDS];
+            petFriendly = l[PET_FRIENDLY];
+            if(!healthNeeds && !petFriendly) {
+                icon = shelterIcon;
+            }
+            if(healthNeeds && !petFriendly) {
+                icon = healthNeedsIcon;
+            }
+            if(healthNeeds && petFriendly) {
+                icon = petFriendlyIcon;
+            }
+            if(!healthNeeds && petFriendly) {
+                icon = petsOnlyIcon;
+            }
+            marker = L.marker(latLng, {icon: icon}).addTo(map);
+            marker.bindPopup(
+                            name + "<br />" +
+                            "Special Health Needs? " + (healthNeeds ? "Yes" : "No" + "<br />") +
+                            "Pet Friendly? " + (petFriendly ? "Yes" : "No") + "<br />" +
+                            "<a href='http://www.google.com/#q=" + name + "'>More info</a> (from Google)");
+        }
     </script>
 </body>
 </html>

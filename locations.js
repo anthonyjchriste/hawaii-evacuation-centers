@@ -287,3 +287,8 @@ var locations = [
   ["Waiahole Elementary", [21.483253, -157.851942], true, false],
   ["Waimanalo Elementary and Intermediate", [21.345553, -157.715006], true, true]
 ];
+
+var NAME = 0;
+var LAT_LNG = 1;
+var HEALTH_NEEDS= 2;
+var PET_FRIENDLY = 3;
