@@ -35,20 +35,22 @@ var locations = [
 
   // South Hilo District
   ["E B de Silva Elementary", [19.710482, -155.114645], false, false],
-  ["Hilo High", [], true, true],
-  ["", [], , ],
-  ["", [], , ],
-  ["", [], , ],
-  ["", [], , ],
-  ["", [], , ],
-  ["", [], , ],
-  ["", [], , ],
-  ["", [], , ],
-  ["", [], , ],
-  ["", [], , ],
-  ["", [], , ],
-  ["", [], , ],
-  ["", [], , ],
+  ["Hilo High", [19.720738, -155.096373], true, true],
+  ["Hilo Intermediate", [19.720407, -155.095859], true, false],
+  ["Kaumana Elementary", [19.686045, -155.134706], true, false],
+  ["Waiakea Elementary", [19.695094, -155.074660], true, false],
+  ["Waiakea High", [19.698746, -155.076367], true, true],
+  ["Waiakea Intermediate", [19.694790, -155.076956], true, false],
+  ["Waiakea Waena Elementary", [19.683766, -155.068047], true, false],
+
+  // Puna District
+  ["Keaau Elementary", [19.613864, -155.035762], false, false],
+  ["Keaau High", [19.613596, -155.031722], true, true],
+  ["Keaau Middle", [19.621316, -155.037571], true, true],
+  ["Keonepoko Elementary", [19.525650, -154.926493], true, false],
+  ["Mountain View Elementary", [19.554326, -155.102777], true, false],
+  ["Pahoa Elementary", [21.318493, -157.843938], true, false],
+  ["Pahoa High and Intermediate", [19.489335, -154.942036], true, true],
 
   /* ----- Oahu ----- */
   // North Shore (Kaena Point to Kahuku)
