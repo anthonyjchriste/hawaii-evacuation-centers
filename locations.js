@@ -90,7 +90,38 @@ var locations = [
   ["Kualapuu Elementary", [21.158908, -157.040876], false, false],
   ["Molokai High", [21.163452, -157.04796], true, false],
   ["Kilohana Elementary", [21.088372, -157.017747], false, false],
-  
+
+  /* ----- Lanai ----- */
+  ["Lania High", [20.826268, -156.922020], true, false],
+
+  /* ----- Kauai ----- */
+  // Central
+  ["Kamakahelei Middle", [21.967724, -159.388253], true, false],
+  ["Kauai Community College", [21.968699, -159.396975], false, false],
+  ["Kauai High", [21.959214, -159.358414], true, true],
+  ["Kauai Humane Society [pets only]", [21.964777, -159.421556], false, true],
+  ["Kauai War Memorial Convention Hall", [21.973261, -159.363929], false, false],
+  ["King Kaumualii Elementary", [21.995806, -159.351541], false, false],
+  ["Wilcox Elementary", [21.975381, -159.364120], false, false],
+
+  // Eastside
+  ["Kapaa Elementary School", [22.090468, -159.313496], true, false],
+  ["Kapaa High School", [22.091333, -159.310599], true, true],
+  ["Kapaa Middle School", [22.078330, -159.327586], true, true],
+
+  // North
+  ["Kilauea Elementary School", [22.206020, -159.409026], false, false],
+  ["Kilauea Neighborhood Center", [22.211009, -159.405884], true, false],
+
+  // South
+  ["Eleele Elementary School", [21.910473, -159.583808], true, true],
+  ["Kalaheo Elementary School", [21.922910, -159.521173], true, true],
+  ["Koloa Elementary School", [21.898437, -159.467122], true, false],
+
+  // West
+  ["Waimea Canyon Elem. and Middle", [21.961646, -159.673103], true, true],
+  ["Waimea High", [21.957828, -159.668686], true, true],
+
   /* ----- Oahu ----- */
   // North Shore (Kaena Point to Kahuku)
   ["Waialua High and Intermediate", [21.566681, -158.125673], true, true],
