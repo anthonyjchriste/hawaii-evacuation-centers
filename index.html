@@ -44,7 +44,7 @@
             marker = L.marker(latLng, {icon: icon}).addTo(map);
             marker.bindPopup(
                             name + "<br />" +
-                            "Special Health Needs? " + (healthNeeds ? "Yes" : "No" + "<br />") +
+                            "Special Health Needs? " + (healthNeeds ? "Yes" : "No") + "<br />" +
                             "Pet Friendly? " + (petFriendly ? "Yes" : "No") + "<br />" +
                             "<a href='http://www.google.com/#q=" + name + "'>More info</a> (from Google)");
         }
