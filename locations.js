@@ -85,6 +85,12 @@ var locations = [
   ["Paia Elementary", [20.900527, -156.363310], true, false],
   ["Pukalani Elementary", [20.840292, -156.344999], true, false],
 
+  /* ----- Molokai ----- */
+  ["Kaunakakai Elementary", [21.088362, -157.017683], false, false],
+  ["Kualapuu Elementary", [21.158908, -157.040876], false, false],
+  ["Molokai High", [21.163452, -157.04796], true, false],
+  ["Kilohana Elementary", [21.088372, -157.017747], false, false],
+  
   /* ----- Oahu ----- */
   // North Shore (Kaena Point to Kahuku)
   ["Waialua High and Intermediate", [21.566681, -158.125673], true, true],
