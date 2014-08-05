@@ -52,6 +52,39 @@ var locations = [
   ["Pahoa Elementary", [21.318493, -157.843938], true, false],
   ["Pahoa High and Intermediate", [19.489335, -154.942036], true, true],
 
+  /* ----- Maui ----- */
+  // Hana
+  ["Hana High", [20.775666, -156.000592], false, false],
+
+  // Kahului/Wailuku/Waihee
+  ["Baldwin High", [20.890169, -156.491690], true, true],
+  ["Iao Elementary", [20.884852, -156.500418], true, false],
+  ["Kahului Elementary", [20.877865, -156.470595], true, false],
+  ["Lihikai Elementary", [20.880518, -156.484269], true, false],
+  ["Maui Community College", [20.889877, -156.476508], false, false],
+  ["Maui High", [20.875297, -156.474082], true, true],
+  ["Maui Waena Intermediate", [20.874355, -156.484830], true, true],
+  ["Waihee Elementary", [20.934278, -156.514329], true, false],
+  ["Wailuku Elementary", [20.883514, -156.505588], true, false],
+
+  // Kihei/Makena
+  ["Kamalii Elementary", [20.721361, -156.440164], true, false],
+  ["Kihei Elementary", [20.747697, -156.447228], true, false],
+  ["Lokelani Intermediate", [20.746224, -156.447157], true, true],
+
+  // Lahaina (West Maui)
+  ["Lahaina Intermediate", [20.885569, -156.661667], true, false],
+  ["Lahainaluna High", [20.888342, -156.660441], true, false],
+  ["Princess Nahienaena Elementary", [20.886394, -156.663563], true, false],
+
+  // Upcountry
+  ["Haiku Elementary", [20.928541, -156.322335], false, false],
+  ["Kalama Intermediate", [20.850655, -156.320635], true, true],
+  ["King Kekaulike High", [20.827238, -156.327373], true, true],
+  ["Makawao Elementary", [20.856672, -156.314178], true, false],
+  ["Paia Elementary", [20.900527, -156.363310], true, false],
+  ["Pukalani Elementary", [20.840292, -156.344999], true, false],
+
   /* ----- Oahu ----- */
   // North Shore (Kaena Point to Kahuku)
   ["Waialua High and Intermediate", [21.566681, -158.125673], true, true],
