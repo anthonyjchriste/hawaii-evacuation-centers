@@ -3,51 +3,190 @@
 <head lang="en">
     <meta charset="UTF-8">
     <title>Map of Hawaii Evacuation Centers</title>
-    <link rel="stylesheet" href="contrib/leaflet.css" />
+    <link rel="stylesheet" href="contrib/leaflet.css"/>
     <script src="contrib/leaflet.js"></script>
     <script src="contrib/Leaflet.MakiMarkers.js"></script>
+    <link rel="stylesheet" href="contrib/bootstrap.min.css"/>
+    <link rel="stylesheet" href="site.css"/>
     <script src="locations.js"></script>
 </head>
 <body>
-    <div id="hawaii-map" style="width:800px;height:600px;"></div>
+<div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+    <div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="#">State of Hawaii Evacuation Centers</a>
+        </div>
+    </div>
+</div>
 
-    <script type="text/javascript">
-        var osmUrl = "http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png";
-        var osmAttrib = "Map data © OpenStreetMap contributors";
-        var osm = new L.TileLayer(osmUrl, {attribution: osmAttrib});
-        var map = L.map('hawaii-map').setView([20.848545 , -157.494507], 7);
-        var shelterIcon = L.MakiMarkers.icon({icon: "lodging", color: "#00F", size: "m"});
-        var healthNeedsIcon = L.MakiMarkers.icon({icon: "hospital", color: "#F00", size: "m"});
-        var petFriendlyIcon = L.MakiMarkers.icon({icon: "dog-park", color: "#0F0", size: "m"});
-        var petsOnlyIcon = L.MakiMarkers.icon({icon: "dog-park", color: "#FFFF00", size: "m"});
-        map.addLayer(osm);
+<div class="container">
+    <div class="row view-area">
+        <div class="col-md-7" id="hawaii-map"></div>
+        <div class="col-md-5" id="info">
+            <div class="panel panel-danger">
+                <div class="panel-heading">
+                    <h3 class="panel-title">This is an unofficial map!</h3>
+                </div>
+                <div class="panel-body">
+                    I am not associated with any federal, state, or local government or office.
+                    <br />
+                    <br />
+                    Data was obtained from Hawai'i State Civil Defense hurricane evacuation shelters list which can be found at
+                    <a hred="http://www.scd.hawaii.gov/documents/2013SeptHurEvacShelters.pdf">
+                        http://www.scd.hawaii.gov/documents/2013SeptHurEvacShelters.pdf
+                    </a>
+                    <br />
+                    <br />
+                    Location data was obtained using Google maps.
+                </div>
+            </div>
+            <div class="panel panel-danger">
+                <div class="panel-heading">
+                    <h3 class="panel-title">! Attention !</h3>
+                </div>
+                <div class="panel-body">
+                    Hurricane Evacuation Shelters MAY NOT
+                    be open during evacuations for a
+                    Tsunami
+                    WARNING. Your local civil
+                    defense or emergency management
+                    agency will provide locations of
+                    tsunami evacuation centers or
+                    assembly areas through local media.
+                </div>
+            </div>
+            <div class="panel panel-primary">
+                <div class="panel-heading">
+                    <h3 class="panel-title">Know Your Shelter</h3>
+                </div>
+                <div class="panel-body">
+                    <b>Special Health Needs Shelter (Red and Green icons)</b>
+                    <br />
+                    provide limited support
+                    to persons with special
+                    health needs. These
+                    evacuees must either be
+                    capable of taking care of their own
+                    needs or be accompanied by
+                    a caregiver
+                    <br />
+                    <br />
+                    <b>Pet Friendly Shelters (Green icons only)</b>
+                    <br />
+                    are co-located with
+                    some general population
+                    shelters. Household pets
+                    entering a pet friendly shelter must be
+                    caged for safety and owners should
+                    provide water and food for their pets.
+                    <br />
+                    <br />
+                    <b>Pet Only Shelters (Yellow icons only)</b>
+                    <br />
+                    are shelters that only house pets.
+                </div>
+            </div>
+            <div class="panel panel-primary">
+                <div class="panel-heading">
+                    <h3 class="panel-title">More Information</h3>
+                </div>
+                <div class="panel-body">
+                    <b>Hawaii (Big Island)</b>
+                    <br />
+                    Evacuation and shelter information provided
+                    by Hawaii County Civil Defense,
+                    Phone: (808) 935-0031.
+                    <br />
+                    <br />
+                    <b>Maui County</b>
+                    <br />
+                    Evacuation and shelter information for Maui
+                    County provided by Maui Civil Defense,
+                    Phone: (808) 270-7285.
+                    <br />
+                    <br />
+                    <b>Kauai</b>
+                    <br />
+                    Evacuation and shelter information provided by
+                    Kauai Civil Defense, Phone: (808) 241-1800.
+                    <br />
+                    <br />
+                    <b>Oahu</b>
+                    <br />
+                    Evacuation and shelter information provided
+                    by Department of Emergency Management,
+                    Phone: (808) 723-8960.
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</div>
 
-        var marker, l, icon, name, latLng, healthNeeds, petFriendly;
-        for(var i = 0; i < locations.length; i++) {
-            l = locations[i];
-            name = l[NAME];
-            latLng = l[LAT_LNG];
-            healthNeeds = l[HEALTH_NEEDS];
-            petFriendly = l[PET_FRIENDLY];
-            if(!healthNeeds && !petFriendly) {
-                icon = shelterIcon;
-            }
-            if(healthNeeds && !petFriendly) {
-                icon = healthNeedsIcon;
-            }
-            if(healthNeeds && petFriendly) {
-                icon = petFriendlyIcon;
-            }
-            if(!healthNeeds && petFriendly) {
-                icon = petsOnlyIcon;
-            }
-            marker = L.marker(latLng, {icon: icon}).addTo(map);
-            marker.bindPopup(
-                            name + "<br />" +
-                            "Special Health Needs? " + (healthNeeds ? "Yes" : "No") + "<br />" +
-                            "Pet Friendly? " + (petFriendly ? "Yes" : "No") + "<br />" +
-                            "<a href='http://www.google.com/#q=" + name + "'>More info</a> (from Google)");
+<script src="contrib/jquery.min.js"></script>
+<script src="contrib/bootstrap.min.js"></script>
+<script type="text/javascript">
+    var osmUrl = "http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png";
+    var osmAttrib = "Map data © OpenStreetMap contributors";
+    var osm = new L.TileLayer(osmUrl, {attribution: osmAttrib});
+    var map = L.map('hawaii-map').setView([20.848545 , -157.494507], 7);
+    var shelterIcon = L.MakiMarkers.icon({icon: "lodging", color: "#00F", size: "m"});
+    var healthNeedsIcon = L.MakiMarkers.icon({icon: "hospital", color: "#F00", size: "m"});
+    var petFriendlyIcon = L.MakiMarkers.icon({icon: "hospital", color: "#0F0", size: "m"});
+    var petsOnlyIcon = L.MakiMarkers.icon({icon: "dog-park", color: "#FFFF00", size: "m"});
+    map.addLayer(osm);
+
+    var marker, l, icon, name, latLng, healthNeeds, petFriendly;
+    for (var i = 0; i < locations.length; i++) {
+        l = locations[i];
+        name = l[NAME];
+        latLng = l[LAT_LNG];
+        healthNeeds = l[HEALTH_NEEDS];
+        petFriendly = l[PET_FRIENDLY];
+        if (!healthNeeds && !petFriendly) {
+            icon = shelterIcon;
         }
-    </script>
+        if (healthNeeds && !petFriendly) {
+            icon = healthNeedsIcon;
+        }
+        if (healthNeeds && petFriendly) {
+            icon = petFriendlyIcon;
+        }
+        if (!healthNeeds && petFriendly) {
+            icon = petsOnlyIcon;
+        }
+        marker = L.marker(latLng, {icon: icon}).addTo(map);
+        marker.bindPopup(
+                        name + "<br />" +
+                        "Special Health Needs? " + (healthNeeds ? "Yes" : "No") + "<br />" +
+                        "Pet Friendly? " + (petFriendly ? "Yes" : "No") + "<br />" +
+                        "<a href='http://www.google.com/#q=" + name + "'>More info</a> (from Google)");
+    }
+
+    var legend = L.control({position: 'topright'});
+
+    legend.onAdd = function (map) {
+
+        var div = L.DomUtil.create('div', 'info legend'),
+                grades = ["#00F", "#F00", "#0F0", "#FFFF00"],
+                labels = ["Shelter", "Special Health Needs", "Special Health Needs <b>AND</b> Pet Friendly", "Pets Only"];
+
+        // loop through our density intervals and generate a label with a colored square for each interval
+        for (var i = 0; i < grades.length; i++) {
+            div.innerHTML +=
+                    '<i style="background:' + grades[i] + '"></i> ' + labels[i] + "<br />";
+        }
+
+        return div;
+    };
+
+    legend.addTo(map);
+</script>
 </body>
 </html>
